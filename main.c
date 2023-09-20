@@ -1,10 +1,10 @@
 #include "shell.h"
 /**
- * main - initialize the variables of the program
- * @argc: number of values received from the command line
- * @argv: values received from the command line
- * @env: number of values received from the command line
- * Return: zero on succes.
+ * main - initialize the program's variables
+ * @argc: the quantity of values from the command line
+ * @argv: from the command line values
+ * @env: the quantity of values from the command line
+ * Return: 0 if succes.
  */
 int main(int argc, char *argv[], char *env[])
 {
@@ -16,7 +16,7 @@ int main(int argc, char *argv[], char *env[])
 	signal(SIGINT, ctrl_c_handler);
 
 	if (isatty(STDIN_FILENO) && isatty(STDOUT_FILENO) && argc == 1)
-	{/* We are in the terminal, interactive mode */
+	{
 		errno = 2;
 		prmt = PROMPT;
 	}
@@ -26,9 +26,9 @@ int main(int argc, char *argv[], char *env[])
 }
 
 /**
- * ctrl_c_handler - print the prompt in a new line
- * when the signal SIGINT (ctrl + c) is send to the program
- * @UNUSED: option of the prototype
+ * ctrl_c_handler - the command should appear on a new line.
+ * when the program receives the signal SIGINT (ctrl + c)
+ * @UNUSED: alternative to the prototype
  */
 void ctrl_c_handler(int opr UNUSED)
 {
@@ -37,11 +37,11 @@ void ctrl_c_handler(int opr UNUSED)
 }
 
 /**
- * ini_the_data - inicialize the struct with the info of the program
+ * ini_the_data - initialize the struct with the program's information
  * @data_ptr: pointer to the structure of data
- * @argv: array of arguments pased to the program execution
- * @env: environ pased to the program execution
- * @argc: number of values received from the command line
+ * @argv: array of arguments passed to the execution of the program
+ * @env: environment passed before running the program
+ * @argc: the quantity of values from the command line
  */
 void ini_the_data(prog_s_data *data_ptr, int argc, char *argv[], char **env)
 {
@@ -51,7 +51,7 @@ void ini_the_data(prog_s_data *data_ptr, int argc, char *argv[], char **env)
 	data_ptr->in_ln = NULL;
 	data_ptr->cmd_name = NULL;
 	data_ptr->execut_count = 0;
-	/* define the file descriptor to be readed*/
+
 	if (argc == 1)
 		data_ptr->fil_dscription = STDIN_FILENO;
 	else
@@ -85,8 +85,8 @@ void ini_the_data(prog_s_data *data_ptr, int argc, char *argv[], char **env)
 	}
 }
 /**
- * inf_loop_rn - its a infinite loop that shows the prompt
- * @prmt: prompt to be printed
+ * inf_loop_rn - It displays the prompt in an unending loop.
+ * @prmt: prompting printing
  * @data_ptr: its a pointer to data
  */
 void inf_loop_rn(char *prmt, prog_s_data *data_ptr)
@@ -101,7 +101,7 @@ void inf_loop_rn(char *prmt, prog_s_data *data_ptr)
 		if (err_c == EOF)
 		{
 			free_all(data_ptr);
-			exit(errno); /* if EOF is the fisrt Char of string, exit*/
+			exit(errno);
 		}
 		if (str_lent >= 1)
 		{
@@ -109,7 +109,7 @@ void inf_loop_rn(char *prmt, prog_s_data *data_ptr)
 			xpnd_var(data_ptr);
 			_tkniz(data_ptr);
 			if (data_ptr->tkn[0])
-			{ /* if a text is given to prompt, execute */
+			{
 				err_c = exect(data_ptr);
 				if (err_c != 0)
 					_print_err(err_c, data_ptr);
