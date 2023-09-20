@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- * string_len - returns the length of a string.
- * @str: pointer to string.
- * Return: length of string.
+ * string_len - returns length of a given string.
+ * @str: pointer to a given string.
+ * Return: length of a given string.
  */
 int string_len(char *str)
 {
@@ -19,9 +19,9 @@ int string_len(char *str)
 }
 
 /**
- * string_dup - duplicates an string
- * @str: String to be copied
- * Return: pointer to the array
+ * string_dup - duplicates a given string
+ * @str: String to be duplicated
+ * Return: pointer to the string
  */
 char *string_dup(char *str)
 {
@@ -51,10 +51,10 @@ char *string_dup(char *str)
 
 /**
  * string_cmpr - Compare two strings
- * @str1: String one, or the shorter
- * @str2: String two, or the longer
+ * @str1: String one
+ * @str2: String two
  * @numb: number of characters to be compared, 0 if infinite
- * Return: 1 if the strings are equals,0 if the strings are different
+ * Return: 0 if they are different, 1 if they are equals
  */
 int string_cmpr(char *str1, char *str2, int numb)
 {

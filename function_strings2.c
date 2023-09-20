@@ -3,8 +3,8 @@
 
 /**
  * string_conc - concatenates two strings.
- * @str1: String to be concatenated
- * @str2: String to be concatenated
+ * @str1: String that be concatenated
+ * @str2: String that be concatenated
  *
  * Return: pointer to the array
  */
@@ -47,10 +47,10 @@ char *string_conc(char *str1, char *str2)
 
 
 /**
- * string_rev - reverses a string.
+ * string_rev - reverses a given string.
  *
- * @str: pointer to string.
- * Return: void.
+ * @str: pointer to the string.
+ * Return: Nothing.
  */
 void string_rev(char *str)
 {
