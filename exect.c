@@ -20,16 +20,16 @@ int exect(prog_s_data *data_ptr)
 	}
 	else
 	{
-		pd = fork(); 
+		pd = fork();
 		if (pd == -1)
-		{ 
+		{
 			perror(data_ptr->cmd_name);
 			exit(EXIT_FAILURE);
 		}
 		if (pd == 0)
 		{
 			re_val = execve(data_ptr->tkn[0], data_ptr->tkn, data_ptr->envirmnt);
-			if (re_val == -1) 
+			if (re_val == -1)
 				perror(data_ptr->cmd_name), exit(EXIT_FAILURE);
 		}
 		else

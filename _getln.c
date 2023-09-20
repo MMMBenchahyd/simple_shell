@@ -49,8 +49,8 @@ int _getln(prog_s_data *data_ptr)
 * chk_for_logic_oprts - checks and splitting for the operators && and ||.
 * @arr_cmnd: a list of commands.
 * @i: to be checked is the index in the arr_cmnd.
-* @arr_opr: array containing the logical operators for every command before that
-*
+* @arr_opr: array containing the logical operators
+* for every command before that
 * Return: index of the last command in the arr_cmnd.
 */
 int chk_for_logic_oprts(char *arr_cmnd[], int i, char arr_opr[])

@@ -3,7 +3,7 @@
 /**
  * bltn_lst - find a match, then use the built-in association
  * @data_ptr: the pointer of the program's data
- * Return:If a match is found, the function's return value 
+ * Return: If a match is found, the function's return value
  * is returned; otherwise, -1 is returned.
  **/
 int bltn_lst(prog_s_data *data_ptr)

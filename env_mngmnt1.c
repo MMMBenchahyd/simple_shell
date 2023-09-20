@@ -28,7 +28,7 @@ char *env_ky_gt(char *ky, prog_s_data *data_ptr)
 }
 
 /**
- * env_ky_st - replace the environment variable's value with 
+ * env_ky_st - replace the environment variable's value with
  * a new one or, if necessary, create one.
  * @ky: the variable's name to set
  * @val: new value

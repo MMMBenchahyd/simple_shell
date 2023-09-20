@@ -93,7 +93,7 @@ char **tokniz_the_path(prog_s_data *data_ptr)
 }
 
 /**
- * file_chk - determines whether a file is present, whether it is not 
+ * file_chk - determines whether a file is present, whether it is not
  * a directory, and whether it has execution permissions.
  * @ful_pth: pointer to the full file name
  * Return: 0 on success, or error code if it exists.
