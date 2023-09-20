@@ -1,8 +1,9 @@
 #include "shell.h"
 /**
- * _tkniz - this function separate the string using a designed delimiter
- * @data_ptr: a pointer to the program's data
- * Return: an array of the different parts of the string
+ * _tkniz - this function divides the string using
+ * a delimiter that was created.
+ * @data_ptr: the program's data pointer
+ * Return: a collection of the string's various components
  */
 void _tkniz(prog_s_data *data_ptr)
 {

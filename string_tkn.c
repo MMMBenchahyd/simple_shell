@@ -1,9 +1,9 @@
 #include "shell.h"
 /**
  * ben_string_tok - separates strings with delimiters
- * @l: It´s pointer to array we receive in getl.
- * @dr: It´s characters we mark off string in parts.
- * Return: A pointer to the created token
+ * @l: Pointer to a string.
+ * @dr: Characters are what we remove in pieces from a string..
+ * Return: A pointer to the token
 */
 char *ben_string_tok(char *l, char *dr)
 {
