@@ -20,11 +20,11 @@
 /************* STRUCTURES **************/
 
 /**
- * struct info- structr for the data of the program
+ * struct informations - structr for the data of the program
  * @name_of_prog: the executable name
  * @in_ln: ptr to the input read for _getline func
  * @cmd_name: pointer to the user first typed command
- * @exec_counter: count the number of excecuted comands
+ * @execut_count: count the number of excecuted comands
  * @fil_dscription: input of commands file's descriptor
  * @tkn: pointer to an array of tokenized inputs
  * @envirmnt: the environ copy process
@@ -44,8 +44,8 @@ typedef struct informations
 
 /**
  * struct builtins - structure for the builtin s
- * @builtin: the builtin name
- * @function: the associated func called for each builtins
+ * @bltn: the builtin name
+ * @func: the associated func called for each builtins
  */
 typedef struct builtins
 {

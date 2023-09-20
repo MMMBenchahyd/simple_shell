@@ -46,6 +46,7 @@ int _arr_to_int(char *str)
 {
 	int sn = 1;
 	unsigned int numb = 0;
+
 	while (!('0' <= *str && *str <= '9') && *str != '\0')
 	{
 		if (*str == '-')
