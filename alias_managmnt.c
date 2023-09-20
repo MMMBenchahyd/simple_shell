@@ -4,7 +4,7 @@
  * print_alias - this func show, add, or remove aliases
  * @data_ptr: this struct is for the data of  program's
  * @alias: the name of the alias that will be printed
- * Return: return 0 if sucess, or other number if it was  declared in the one of the arguments
+ * Return: rtrn 0 if sucess, other number if it declared in the arguments
  */
 int print_alias(prog_s_data *data_ptr, char *alias)
 {
@@ -40,8 +40,8 @@ int print_alias(prog_s_data *data_ptr, char *alias)
 /**
  * get_alias - this will  add,show or  remove aliases
  * @data_ptr: this struct for the data of the program
- * @name: the name of the main requested alias.
- * Return: return 0 if sucess, or other number if it was declared in the one of the arguments
+ * @name: the name of the main requested alias
+ * Return: rtrn 0 if sucess, other number if it was declared in the arguments
  */
 char *get_alias(prog_s_data *data_ptr, char *name)
 {
@@ -66,10 +66,11 @@ char *get_alias(prog_s_data *data_ptr, char *name)
 
 /**
  * set_alias - this  will add or override alias
- * @alias_string: the alias that will  be seted in the form ( name='value' )
+ * @alias_string: the alias that will be seted in the form name='value' )
  * @data_ptr: this struct is  for the program's data
- * Return: return 0 if sucess, or other number if it was  declared in the one of the arguments
+ * Return: rtrn 0 if sucess, other number if it declared in the arguments
  */
+
 int set_alias(char *alias_string, prog_s_data *data_ptr)
 {
 	int i, j;
@@ -77,7 +78,7 @@ int set_alias(char *alias_string, prog_s_data *data_ptr)
 
 	if (alias_string == NULL ||  data_ptr->lst_of_alias == NULL)
 		return (1); 
-	
+
 	for (i = 0; alias_string[i]; i++)
 		if (alias_string[i] != '=')
 			buf[i] = alias_string[i];
