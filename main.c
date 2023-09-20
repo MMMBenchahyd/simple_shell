@@ -96,7 +96,7 @@ void inf_loop_rn(char *prmt, prog_s_data *data_ptr)
 	while (++(data_ptr->execut_count))
 	{
 		_print_str(prmt);
-		err_c = str_lent = _gtln(data_ptr);
+		err_c = str_lent = _getln(data_ptr);
 
 		if (err_c == EOF)
 		{

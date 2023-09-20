@@ -69,7 +69,7 @@ void inf_loop_rn(char *prmt, prog_s_data *data_ptr);
 void ctrl_c_handler(int opr UNUSED);
 
 
-/*========  _gtln.c  ========*/
+/*========  _getln.c  ========*/
 
 /* Read one line of the standar input*/
 int _getln(prog_s_data *data_ptr);

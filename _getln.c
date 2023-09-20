@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
-* _gtln - read one line from the prompt.
+* _getln - read one line from the prompt.
 * @data_ptr: struct for the program's data
 *
 * Return: reading counting bytes.
 */
-int _gtln(prog_s_data *data_ptr)
+int _getln(prog_s_data *data_ptr)
 {
 	char buffer[BUFFER_SIZE] = {'\0'};
 	static char *arr_cmnd[10] = {NULL};
