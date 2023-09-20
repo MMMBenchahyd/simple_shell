@@ -1,20 +1,20 @@
 #include "shell.h"
 
 /**
- * bltn_xt - exit of the program with the status
- * @data_ptr: struct for the program's data
- * Return: zero if sucess, or other number if its declared in the arguments
+ * bltn_xt - program exit with the current status
+ * @data_ptr: the pointer of the program's data
+ * Return:If successful, 0; else, a defined number in the arguments
  */
 int bltn_xt(prog_s_data *data_ptr)
 {
 	int j;
 
 	if (data_ptr->tkn[1] != NULL)
-	{/*if exists arg for exit, check if is a number*/
+	{
 		for (j = 0; data_ptr->tkn[1][j]; j++)
 			if ((data_ptr->tkn[1][j] < '0' || data_ptr->tkn[1][j] > '9')
 				&& data_ptr->tkn[1][j] != '+')
-			{/*if is not a number*/
+			{
 				errno = 2;
 				return (2);
 			}
@@ -25,9 +25,9 @@ int bltn_xt(prog_s_data *data_ptr)
 }
 
 /**
- * bltn_cd - change the current directory
- * @data_ptr: struct for the program's data
- * Return: zero if sucess, or other number if its declared in the arguments
+ * bltn_cd - the current directory be modified
+ * @data_ptr: the pointer of the program's data
+ * Return: If successful, 0; else, a defined number in the arguments
  */
 int bltn_cd(prog_s_data *data_ptr)
 {
@@ -63,10 +63,10 @@ int bltn_cd(prog_s_data *data_ptr)
 }
 
 /**
- * st_wrkn_dir - set the work directory
- * @data_ptr: struct for the program's data
- * @nu_dir: path to be set as work directory
- * Return: zero if sucess, or other number if its declared in the arguments
+ * st_wrkn_dir - the work directory setting
+ * @data_ptr: the pointer of the program's data
+ * @nu_dir: set the work directory path
+ * Return: If successful, 0; else, a defined number in the arguments
  */
 int st_wrkn_dir(prog_s_data *data_ptr, char *nu_dir)
 {
@@ -90,9 +90,9 @@ int st_wrkn_dir(prog_s_data *data_ptr, char *nu_dir)
 }
 
 /**
- * bltn_hlp - shows the environment where the shell runs
- * @data_ptr: struct for the program's data
- * Return: zero if sucess, or other number if its declared in the arguments
+ * bltn_hlp - displays the environment in which the shell is running.
+ * @data_ptr: the pointer of the program's data
+ * Return: if successful, 0; else, a other number in the arguments
  */
 int bltn_hlp(prog_s_data *data_ptr)
 {
@@ -128,27 +128,25 @@ int bltn_hlp(prog_s_data *data_ptr)
 			return (1);
 		}
 	}
-	/*if there is no match, print error and return -1 */
 	errno = EINVAL;
 	perror(data_ptr->cmd_name);
 	return (0);
 }
 
 /**
- * bltn_alias - add, remove or show aliases
- * @data_ptr: struct for the program's data
- * Return: zero if sucess, or other number if its declared in the arguments
+ * bltn_alias - Add, delete, or display aliases
+ * @data_ptr: the pointer of the program's data
+ * Return: if successful, 0; else, a other number in the arguments
  */
 int bltn_alias(prog_s_data *data_ptr)
 {
 	int k = 0;
 
-	/* if there are no arguments, print all environment */
 	if (data_ptr->tkn[1] == NULL)
 		return (print_alias(data_ptr, NULL));
 
 	while (data_ptr->tkn[++k])
-	{/* if there are arguments, set or print each env variable*/
+	{
 		if (char_counter(data_ptr->tkn[k], "="))
 			set_alias(data_ptr->tkn[k], data_ptr);
 		else

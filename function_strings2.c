@@ -29,12 +29,10 @@ char *string_conc(char *str1, char *str2)
 		return (NULL);
 	}
 
-	/* copy of str1 */
 	for (len1 = 0; str1[len1] != '\0'; len1++)
 		rslt[len1] = str1[len1];
 	free(str1);
 
-	/* copy of str2 */
 	for (len2 = 0; str2[len2] != '\0'; len2++)
 	{
 		rslt[len1] = str2[len2];
@@ -48,7 +46,6 @@ char *string_conc(char *str1, char *str2)
 
 /**
  * string_rev - reverses a given string.
- *
  * @str: pointer to the string.
  * Return: Nothing.
  */

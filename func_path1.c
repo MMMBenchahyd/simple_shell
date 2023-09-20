@@ -3,9 +3,9 @@
 int file_chk(char *ful_pth);
 
 /**
- * find_th_prog - find a program in path
+ * find_th_prog - a program in the path
  * @data_ptr: a pointer to the program's data
- * Return: 0 if success, errcode otherwise
+ * Return: 0 if success, errcode if not.
  */
 
 int find_th_prog(prog_s_data *data_ptr)
@@ -16,7 +16,6 @@ int find_th_prog(prog_s_data *data_ptr)
 	if (!data_ptr->cmd_name)
 		return (2);
 
-	/**if is a full_path or an executable in the same path */
 	if (data_ptr->cmd_name[0] == '/' || data_ptr->cmd_name[0] == '.')
 		return (file_chk(data_ptr->cmd_name));
 
@@ -25,7 +24,7 @@ int find_th_prog(prog_s_data *data_ptr)
 	if (!data_ptr->tkn[0])
 		return (2);
 
-	dirs = tokniz_the_path(data_ptr);/* search in the PATH */
+	dirs = tokniz_the_path(data_ptr);
 
 	if (!dirs || !dirs[0])
 	{
@@ -33,11 +32,11 @@ int find_th_prog(prog_s_data *data_ptr)
 		return (127);
 	}
 	for (i = 0; dirs[i]; i++)
-	{/* appends the function_name to path */
+	{
 		dirs[i] = string_conc(dirs[i], data_ptr->tkn[0]);
 		re_c = file_chk(dirs[i]);
 		if (re_c == 0 || re_c == 126)
-		{/* the file was found, is not a directory and has execute permisions*/
+		{
 			errno = 0;
 			free(data_ptr->tkn[0]);
 			data_ptr->tkn[0] = string_dup(dirs[i]);
@@ -52,9 +51,9 @@ int find_th_prog(prog_s_data *data_ptr)
 }
 
 /**
- * tokniz_the_path - tokenize the path in directories
+ * tokniz_the_path - tokenize directories' paths
  * @data_ptr: a pointer to the program's data
- * Return: array of path directories
+ * Return: path directories array
  */
 
 char **tokniz_the_path(prog_s_data *data_ptr)
@@ -64,7 +63,6 @@ char **tokniz_the_path(prog_s_data *data_ptr)
 	char **tkn = NULL;
 	char *PTH;
 
-	/* get the PATH value*/
 	PTH = env_ky_gt("PATH", data_ptr);
 	if ((PTH == NULL) || PTH[0] == '\0')
 	{/*path not found*/
@@ -73,17 +71,14 @@ char **tokniz_the_path(prog_s_data *data_ptr)
 
 	PTH = string_dup(PTH);
 
-	/* find the number of directories in the PATH */
 	for (i = 0; PTH[i]; i++)
 	{
 		if (PTH[i] == ':')
 			count_dir++;
 	}
 
-	/* reserve space for the array of pointers */
 	tkn = malloc(sizeof(char *) * count_dir);
 
-	/*tokenize and duplicate each token of path*/
 	i = 0;
 	tkn[i] = string_dup(ben_string_tok(PTH, ":"));
 	while (tkn[i++])
@@ -98,8 +93,8 @@ char **tokniz_the_path(prog_s_data *data_ptr)
 }
 
 /**
- * file_chk - checks if exists a file, if it is not a dairectory and
- * if it has excecution permisions for permisions.
+ * file_chk - determines whether a file is present, whether it is not 
+ * a directory, and whether it has execution permissions.
  * @ful_pth: pointer to the full file name
  * Return: 0 on success, or error code if it exists.
  */
@@ -117,7 +112,6 @@ int file_chk(char *ful_pth)
 		}
 		return (0);
 	}
-	/*if not exist the file*/
 	errno = 127;
 	return (127);
 }

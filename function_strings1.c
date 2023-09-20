@@ -66,7 +66,7 @@ int string_cmpr(char *str1, char *str2, int numb)
 	if (str1 == NULL || str2 == NULL)
 		return (0);
 
-	if (numb == 0) /* infinite longitud */
+	if (numb == 0) 
 	{
 		if (string_len(str1) != string_len(str2))
 			return (0);
@@ -77,7 +77,7 @@ int string_cmpr(char *str1, char *str2, int numb)
 		}
 		return (1);
 	}
-	else /* if there is a number of chars to be compared */
+	else 
 	{
 		for (itr = 0; itr < numb ; itr++)
 		{

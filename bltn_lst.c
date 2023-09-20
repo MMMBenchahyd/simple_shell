@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * bltn_lst - search for match and execute the associate builtin
- * @data_ptr: struct for the program's data
- * Return: Returns the return of the function executed is there is a match,
- * otherwise returns -1.
+ * bltn_lst - find a match, then use the built-in association
+ * @data_ptr: the pointer of the program's data
+ * Return:If a match is found, the function's return value 
+ * is returned; otherwise, -1 is returned.
  **/
 int bltn_lst(prog_s_data *data_ptr)
 {
@@ -20,16 +20,12 @@ int bltn_lst(prog_s_data *data_ptr)
 		{NULL, NULL}
 	};
 
-/*walk through the structure*/
 	for (i = 0; opts[i].bltn != NULL; i++)
 	{
-/*if there is a match between the given command and a builtin,*/
 		if (string_cmpr(opts[i].bltn, data_ptr->cmd_name, 0))
 		{
-/*execute the function, and return the return value of the function*/
 			return (opts[i].func(data_ptr));
 		}
-/*if there is no match return -1 */
 	}
 	return (-1);
 }
