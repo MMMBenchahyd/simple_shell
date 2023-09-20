@@ -77,7 +77,7 @@ int set_alias(char *alias_string, prog_s_data *data_ptr)
 	char buf[250] = {'0'}, *temp = NULL;
 
 	if (alias_string == NULL ||  data_ptr->lst_of_alias == NULL)
-		return (1); 
+		return (1);
 
 	for (i = 0; alias_string[i]; i++)
 		if (alias_string[i] != '=')
